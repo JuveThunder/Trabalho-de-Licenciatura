@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Feng</title>
+   <link rel="stylesheet" href="style.css"> 
+   <link rel="stylesheet" href="mediaqueries.css"> 
+</head>
+<body>
+  <nav id="desktop-nav">
+    <div class="logo"> SolarFeng</div>
+    <div>
+        <ul class="nav-links">
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="experience.html">Monitoramento FV</a></li>
+            <li><a href="#projects">Agradecimentos</a></li>
+            <li><a href="#contact">Contactos</a></li>
+        </ul>
+    </div>
+  </nav>
+  <nav id="hamburger-nav"> 
+    <div class="logo">SolarFeng</div>
+    <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="menu-links">
+            <li><a href="#about" onclick="toggleMenu()">Sobre</a></li>
+            <li><a href="experience.html" onclick="toggleMenu()">Monitoramento FV</a></li>
+            <li><a href="#projects" onclick="toggleMenu()">Agradecimentos</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contactos</a></li>
+        </div>
+    </div>
+  </nav>
+  <section id="profile">
+    <div class="section__pic-container">
+        <img src="./assests/profile-pic1.png" alt="John Doe profile picture">
+    </div>
+    <div class="section__text">
+        <p class="section__text__p1"> Trabalho de Licenciatura</p>
+        <h1 class="title">Juvêncio Chimbutane</h1>
+        <p class="section__text__p2">Estudante de Engenharia Mecânica</p>
+        <div class="btn-container">
+            <button class="btn btn-color-2" onclick="window.open('./assests/TERMO DE ATRIBUIÇÃO DE TEMA DE PROJECTO DO CURSO_a.pdf')">
+                Download TL
+            </button>
+            <button class="btn btn-color-1" onclick="location.href='./#contact'">
+                Contactos
+            </button>
+        </div>
+        <div id="socials-container">
+            <img src="./assests/linkedin.png" alt="My linkedIn Profile"
+                class="icon" onclick="location.href='https://linkedin.com/in/juvêncio-chimbutane-085a13297/'">
+            <img src="./assests/email.png" alt="icon contact-icon email-icon"
+                class="icon" onclick="location.href='https://juvechimbutane@gmail.com'">
+        </div>
+    </div>
+    
+  </section>
+  <section id="about">
+    <p class="section__text__p1">Saiba Mais Sobre o Meu</p>
+    <h1 class="title">Trabalho de Licenciatura</h1>
+
+    <!------------------------------------------------------------------------------------------->
+
+    <div class="section-container">
+        <div class="section__pic-container">
+            <img src="./assests/about-pic11.jpg" alt="Profile picture" class="about-pic">
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="text-container">
+              <h1 class="section__text__p1">Construção da Bancada Fotovoltaica
+              </h1>
+                <p>A bancada fotovoltaica foi projectada com uma estrutura 
+                    robusta para simular um sistema real de geração de
+                     energia solar. A montagem envolveu a soldagem e conexão de componentes
+                      eléctricos e a criação de divisórias de madeira prensada,
+                       proporcionando organização e durabilidade ao sistema. 
+                       Dois módulos solares de 100W foram conectados a um controlador 
+                       de carga MPPT, um inversor de 500W e uma bateria de 100Ah. 
+                       O objectivo foi criar um ambiente laboratorial que facilitasse 
+                       o estudo do comportamento de sistemas solares em diferentes 
+                       condições de radiação e carga. Essa arquitetura permite flexibilidade 
+                       em testes e facilita a integração de novos sensores, 
+                       se necessário. O trabalho também destaca a importância de preparar 
+                       futuros engenheiros para a implementação prática de sistemas
+                        renováveis, algo que se torna cada vez mais vital diante da 
+                        crescente demanda por energia limpa e acessível no país.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="section-container">
+
+        <div class="about-details-container">
+
+          <div class="about-containers">
+            <div class="text-container">
+              <h1 class="section__text__p1">
+                Arquitectura da Bancada
+              </h1>
+                <p>
+                    A bancada foi construída com uma arquitectura 
+                    modular, dividida em secções específicas para
+                    os componentes electrónicos e sensores. A soldagem 
+                    de componentes foi feita com precisão para garantir 
+                    a durabilidade e evitar falhas de conexão. As divisórias 
+                    de madeira prensada foram utilizadas para organizar 
+                    os componentes e garantir que cada sensor e dispositivo 
+                    tivesse seu espaço dedicado, facilitando tanto a 
+                    manutenção quanto a expansão futura do sistema.
+                    Sensores de corrente, tensão e temperatura foram
+                    estrategicamente distribuídos para captar informações
+                    essenciais do sistema, que são processadas pelo
+                    Arduino Mega e monitoradas remotamente. Essa estrutura 
+                    modular não só facilita o uso acadêmico em aulas
+                    laboratoriais, mas também permite que o sistema seja 
+                    adaptado para diferentes experimentos, ajudando a 
+                    formar um entendimento mais completo de sistemas solares.
+                </p>
+            </div>
+          </div>
+        </div>
+        <div class="section__pic-container">
+            <img src="./assests/about-pic22.jpg" alt="Profile picture" class="about-pic">
+        </div>
+    </div>
+
+    <div class="section-container">
+        <div class="section__pic-container">
+            <img src="./assests/about-pic33.jpg" alt="Profile picture" class="about-pic">
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="text-container">
+              <h1 class="section__text__p1">
+                Monitoramento Remoto com Firebase
+              </h1>
+                <p>
+                    O sistema utiliza o Firebase como plataforma para 
+                    armazenamento e visualização de dados coletados.
+                    O Arduino Mega, com o módulo ESP8266 integrado, 
+                    é responsável por enviar as leituras dos sensores 
+                    para o Firebase via Wi-Fi. Os dados de corrente,
+                    tensão e potência são armazenados na nuvem, permitindo 
+                    acesso em tempo real de qualquer dispositivo com 
+                    conexão à internet. A integração com o Firebase
+                    garante uma escalabilidade para futuros aprimoramentos,
+                    como o armazenamento de grandes volumes de dados e
+                    a geração de relatórios históricos. A escolha do 
+                    Firebase foi estratégica, dado seu suporte a tempo 
+                    real e fácil integração com dispositivos IoT, como 
+                    o Arduino. Além disso, a plataforma oferece segurança
+                    e integridade dos dados, permitindo o acompanhamento 
+                    preciso das medições ao longo do tempo e facilitando
+                    a análise de desempenho do sistema.
+                </p>
+            </div>
+          </div>
+        </div>
+        
+    </div>
+    
+    <!------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------->
+
+    <div class="section-container">
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="text-container">
+              <h1 class="section__text__p1">
+                Arduino Mega com Módulo ESP8266
+            </h1>
+                <p>
+                    O Arduino Mega com ESP8266 integrado foi 
+                    fundamental para garantir a conectividade 
+                    e o processamento de dados no sistema.
+                    Este microcontrolador é responsável pela 
+                    leitura dos sensores de corrente ACS712,
+                    sensores de tensão DC e AC, e pelo envio
+                    dessas leituras para a nuvem através do
+                    ESP8266. A programação do Arduino incluiu
+                    a configuração dos sensores, o cálculo 
+                    de potência gerada e consumida e a comunicação
+                    via Wi-Fi. A lógica de programação foi 
+                    estruturada para garantir a colecta contínua
+                    e precisa dos dados, além de prever
+                    situações de falhas na rede, onde o 
+                    sistema armazena temporariamente os 
+                    dados até que a conexão seja restabelecida. 
+                    A combinação do Arduino Mega com o ESP8266
+                    oferece um equilíbrio entre capacidade
+                    de processamento e conectividade, 
+                    permitindo a criação de um sistema 
+                    eficiente, capaz de lidar com múltiplos sensores
+                    e enviar dados de forma confiável para o 
+                    monitoramento remoto.
+                    </p>
+            </div>
+          </div>
+
+        </div>
+        <div class="section__pic-container">
+            <img src="./assests/about-pic44.jpg" alt="Profile picture" class="about-pic">
+        </div>
+    </div>
+    <div class="section-container">
+        <div class="section__pic-container">
+            <img src="./assests/about-pic5.jpg" alt="Profile picture" class="about-pic">
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="text-container">
+              <h1 class="section__text__p1">
+                Lógica de Programação
+            </h1>
+                <p>
+                    A lógica de programação implementada no 
+                    Arduino foi elaborada para optimizar o 
+                    desempenho do sistema. O código foi 
+                    desenvolvido para colectar e processar 
+                    dados em tempo real, garantindo que 
+                    leituras de corrente, tensão e potência 
+                    fossem capturadas e enviadas sem sobrecarregar 
+                    o microcontrolador. Utilizando bibliotecas 
+                    específicas, a programação 
+                    permitiu que os dados fossem armazenados no 
+                    Firebase e exibidos em gráficos dinâmicos. 
+                    Essa visualização permite uma compreensão 
+                    clara do comportamento do sistema, sendo uma 
+                    ferramenta poderosa para análises e tomadas de 
+                    decisão futuras. A robustez da programação 
+                    garante que o sistema funcione de forma contínua, 
+                    mesmo em condições adversas, e permite o ajuste e 
+                    calibração dos sensores de forma prática, tornando 
+                    o sistema versátil para aplicações futuras em ambientes 
+                    controlados ou de campo.
+                </p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="section-container">
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="text-container">
+              <h1 class="section__text__p1">
+                Relevância para Moçambique
+            </h1>
+                <p>
+                O desenvolvimento de sistemas de aproveitamento 
+                de energia solar é crucial para o progresso de
+                 Moçambique, especialmente em zonas rurais onde 
+                 a eletrificação ainda é um desafio. A implementação 
+                 de bancadas como a deste projeto promove o avanço 
+                 tecnológico e educacional, capacitando novos 
+                 engenheiros a explorar fontes de energia renováveis. 
+                 Este protótipo é uma base para futuras expansões, 
+                 incluindo a integração de sistemas híbridos que 
+                 combinem energia solar com outras fontes renováveis, 
+                 como eólica. A possibilidade de monitoramento remoto 
+                 oferece uma solução prática e eficiente para a gestão 
+                 de sistemas energéticos em áreas remotas, contribuindo 
+                 para o desenvolvimento sustentável do país. Além disso, 
+                 o incentivo a esse tipo de inovação pode ajudar a 
+                 transformar Moçambique em um centro de desenvolvimento 
+                 tecnológico em energias renováveis, contribuindo para a 
+                 independência energética e melhoria da qualidade de vida 
+                 de milhares de pessoas.     
+                </p>
+            </div>
+          </div>
+        </div>
+        <div class="section__pic-container">
+            <img src="./assests/about-pic6.jpg" alt="Profile picture" class="about-pic">
+        </div>
+    </div>
+    <!------------------------------------------------------------------------------------------->
+
+    <img src="./assests/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'">
+  </section>
+
+  <section id="projects">
+    <P class="section__text__p1">Contribuintes Para Este Trabalho</P>
+    <h1 class="title">Agradecimentos</h1>
+    <p>
+        Este Trabalho de Licenciatura só foi possível graças ao apoio e orientação contínua 
+        do meu supervisor, Prof. Fabião Cumbe, que sempre esteve disponível para ouvir e 
+        corrigir as minhas ideias, proporcionando uma orientação valiosa ao longo de todo 
+        o projecto. Agradeço também ao meu co-supervisor, Prof. Jorge Nhambiu, cuja 
+        contribuição nos passos iniciais foi essencial para a idealização e estruturação 
+        deste trabalho.
+    </p>
+    <p>
+        Da mesma forma, estendo os meus sinceros agradecimentos aos meus amigos e docentes, 
+        que me auxiliaram na solução de desafios e na correcção dos códigos de programação, 
+        sempre dispostos a contribuir com suas ideias e sugestões. A todos aqueles que me 
+        apoiaram, faço uma menção honrosa nesta plataforma, reconhecendo a importância de 
+        suas contribuições para o sucesso deste projeto.
+    </p>
+    <div class="experience-details-container">
+        <div class="about-containers">
+            <div class="details-container color-container">
+            <div class="article-container">
+                <h2 class="experience-sub-title project-title">Professores</h2>
+            </div>
+            <P class="section__text__p1">Supervisor</P>
+            <div class="section__text">
+                <p class="section__text__p1">Prof. Dr. Eng. Fabião Manuel Cumbe</p>
+            </div>
+
+            <P class="section__text__p1">Co-Supervisor</P>
+            <div class="section__text">
+                <p class="section__text__p1">Prof. Dr. Eng. Jorge Olívio Penicela Nhambiu</p>
+            </div>
+
+            </div>
+
+            <div class="details-container color-container">
+                <div class="article-container">
+                    <h2 class="experience-sub-title project-title">Profissionais</h2>
+                </div>
+                <p class="section__text__p1">Docente</p>
+                <div class="section__text">
+                    <p class="section__text__p1">Frederico Zile</p>
+                </div>
+
+                <p class="section__text__p1">Técnico</p>
+                <div class="section__text">
+                    <p class="section__text__p1">Arnaldo Sapulange Júnior</p>
+                </div>
+                <p class="section__text__p1">Facilitador</p>
+                <div class="section__text">
+                    <p class="section__text__p1">Júlio Sapulange</p>
+                </div>
+            </div>
+
+            <div class="details-container color-container">
+                <div class="article-container">
+                    <h2 class="experience-sub-title project-title">Amigos</h2>
+                </div>
+                <div class="section__text">
+                    <p class="section__text__p1">Edson Raso</p>
+                </div>
+                <div class="section__text">
+                    <p class="section__text__p1">Marcelo Albuquerque</p>
+                </div>
+                <div class="section__text">
+                    <p class="section__text__p1">Zacarias Pacheco</p>
+                </div>
+                <div class="section__text">
+                    <p class="section__text__p1">Gerson Chea</p>
+                </div>
+                <div class="section__text">
+                    <p class="section__text__p1">Jorge Durão</p>
+                </div>
+                <div class="section__text">
+                    <p class="section__text__p1">Micas Sarmento</p>
+                </div>
+                <div class="section__text">
+                    <p class="section__text__p1">Ladino Zunguze</p>
+                </div>
+                <div class="section__text">
+                    <p class="section__text__p1">Onildo Marraca</p>
+                </div>
+
+            </div>
+
+            
+        </div>
+    </div>
+    <img src="./assests/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'">
+  </section>
+  <section id="contact">
+    <p class="section__text__p1">Entre em Contacto</p>
+    <h1 class="title">Contacte-Me</h1>
+    <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+            <img src="./assests/email.png" alt="Email icon" class="icon contact-icon email-icon">
+            <p><a href="mailto:juvechimbutane@gmail.com">juvechimbutane@gmail.com</a></p>
+        </div>
+        <div class="contact-info-container">
+            <img src="./assests/linkedin.png" alt="linkedIn icon" class="icon contact-icon ">
+            <p><a href="https://linkedin.com/in/juvêncio-chimbutane-085a13297/">LinkedIn</a></p>
+        </div>
+    </div>
+  </section>
+  <footer>
+    <nav>
+        <div class="nav-links-container">
+            <ul class="nav-links">
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="experience.html">Monitoramento FV</a></li>
+            <li><a href="#projects">Agradecimentos</a></li>
+            <li><a href="#contact">Contactos</a></li>
+            </ul>
+        </div>
+    </nav>
+    <p>Copyright &#169; 2024 Juvêncio Chimbutane. Todos Direitos Reservados</p>
+  </footer>
+ <script src="script.js"></script>   
+</body>
+</html>
