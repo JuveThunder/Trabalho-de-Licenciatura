@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Feng</title>
+   <link rel="stylesheet" href="style.css"> 
+   <link rel="stylesheet" href="mediaqueries.css"> 
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+</head>
+<body>
+  <nav id="desktop-nav">
+    <div class="logo"> SolarFeng</div>
+    <div>
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="experience.html">Monitoramento FV</a></li>
+            <li><a href="index.html">Agradecimentos</a></li>
+            <li><a href="index.html">Contactos</a></li>
+        </ul>
+    </div>
+  </nav>
+  <nav id="hamburger-nav"> 
+    <div class="logo">SolarFeng</div>
+    <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="menu-links">
+            <li><a href="index.html" onclick="toggleMenu()">Início</a></li>
+            <li><a href="experience.html" onclick="toggleMenu()">Monitoramento FV</a></li>
+            <li><a href="index.html" onclick="toggleMenu()">Agradecimentos</a></li>
+            <li><a href="index.html" onclick="toggleMenu()">Contactos</a></li>
+        </div>
+    </div>
+  </nav>
+ 
+  <section id="experience">
+    <div>
+        <p class="section__text__p1">Área de Monitoramento</p>
+        <h1 class="title">Monitoramento Remoto da Bancada</h1>
+    </div>
+
+    <h1 class="section__text__p1">
+        <h1 class="section__text__p1">
+            Monitoramento da Saída do Gerador/Entrada do Controlador de Carga
+        </h1>
+    </h1>
+<!--------------------------------------- PRIMEIRA SECCÃO(SAIDA DO GERADOR/ENTRADA DO CONTROLADOR) --------------------------------------->
+<div>
+
+    <div class="article-container">
+        <h1 class="experience-sub-title">Corrente:</h1>
+        <h1 class="experience-sub-title">Tensão:</h1>
+        <h1 class="experience-sub-title">Potência:</h1>
+    </div>
+    
+    <div class="article-container">
+        <h1 class="experience-sub-title" id="correntegerador">correntegerador</h1>
+        <h1 class="experience-sub-title" id="tensaogerador">tensaogerador</h1>
+        <h1 class="experience-sub-title" id="potenciagerador">potenciagerador</h1>
+    </div>
+
+    <div class="details-container color-container">
+        <p class="section__text__p1">Gráfico de Corrente Em Função do Tempo:</p>
+        <div>
+            <canvas id="myChart1"></canvas>
+        </div>
+    </div>
+
+    <div class="details-container color-container">
+        <p class="section__text__p1">Gráfico de Tensão Em Função do Tempo:</p>
+        <div>
+            <canvas id="myChart2"></canvas>
+        </div>
+    </div>
+
+    <div class="details-container color-container">
+        <p class="section__text__p1">Gráfico de Potência Em Função do Tempo:</p>
+        <div>
+            <canvas id="myChart3"></canvas>
+        </div>
+    </div>
+
+</div>
+
+<!--------------------------------------- FIM DA SECCÃO(SAIDA DO GERADOR/ENTRADA DO CONTROLADOR) --------------------------------------->
+
+<!--------------------------------------- SEGUNDA SECCÃO(SAIDA DO CONTROLADOR/ENTRADA DA BATERIA) --------------------------------------->
+<h1 class="section__text__p1">
+    <h1 class="section__text__p1">
+        Monitoramento da Saída do Controlador/Entrada da Bateria
+    </h1>
+</h1>
+
+<div>
+
+    <div class="article-container">
+        <h1 class="experience-sub-title">Corrente:</h1>
+        <h1 class="experience-sub-title">Tensão:</h1>
+        <h1 class="experience-sub-title">Potência:</h1>
+    </div>
+    
+    <div class="article-container">
+        <h1 class="experience-sub-title" id="correntecontrolador">correntecontrolador</h1>
+        <h1 class="experience-sub-title" id="tensaocontrolador">tensaocontrolador</h1>
+        <h1 class="experience-sub-title" id="potenciacontrolador">potenciacontrolador</h1>
+    </div>
+
+    <div class="details-container color-container">
+        <p class="section__text__p1">Gráfico de Corrente Em Função do Tempo:</p>
+        <div>
+            <canvas id="myChart4"></canvas>
+        </div>
+    </div>
+
+    <div class="details-container color-container">
+        <p class="section__text__p1">Gráfico de Tensão Em Função do Tempo:</p>
+        <div>
+            <canvas id="myChart5"></canvas>
+        </div>
+    </div>
+
+    <div class="details-container color-container">
+        <p class="section__text__p1">Gráfico de Potência Em Função do Tempo:</p>
+        <div>
+            <canvas id="myChart6"></canvas>
+        </div>
+    </div>
+
+</div>
+<!--------------------------------------- FIM DA SECCÃO(SAIDA DO CONTROLADOR/ENTRADA DA BATERIA) --------------------------------------->
+
+
+
+<!--------------------------------------- TERCEIRA SECCÃO(SAIDA DA BATERIA/ENTRADA DO INVERSOR) --------------------------------------->
+<h1 class="section__text__p1">
+    <h1 class="section__text__p1">
+        Monitoramento da Saída da Bateria/Entrada do Inversor
+    </h1>
+</h1>
+
+<div>
+
+    <div class="article-container">
+        <h1 class="experience-sub-title">Corrente:</h1>
+        <h1 class="experience-sub-title">Tensão:</h1>
+        <h1 class="experience-sub-title">Potência:</h1>
+    </div>
+    
+    <div class="article-container">
+        <h1 class="experience-sub-title" id="correntebateria">correntebateria</h1>
+        <h1 class="experience-sub-title" id="tensaobateria">tensaobateria</h1>
+        <h1 class="experience-sub-title" id="potenciabateria">potenciabateria</h1>
+    </div>
+
+    <div class="details-container color-container">
+        <p class="section__text__p1">Gráfico de Corrente Em Função do Tempo:</p>
+        <div>
+            <canvas id="myChart7"></canvas>
+        </div>
+    </div>
+
+    <div class="details-container color-container">
+        <p class="section__text__p1">Gráfico de Tensão Em Função do Tempo:</p>
+        <div>
+            <canvas id="myChart8"></canvas>
+        </div>
+    </div>
+
+    <div class="details-container color-container">
+        <p class="section__text__p1">Gráfico de Potência Em Função do Tempo:</p>
+        <div>
+            <canvas id="myChart9"></canvas>
+        </div>
+    </div>
+
+</div>
+<!--------------------------------------- FIM DA SECCÃO(SAIDA DA BATERIA/ENTRADA DO INVERSOR) --------------------------------------->
+
+
+
+
+<!--------------------------------------- TERCEIRA SECCÃO(SAIDA DO INVERSOR/CARGAS) --------------------------------------->
+<h1 class="section__text__p1">
+    <h1 class="section__text__p1">
+        Monitoramento da Saída do Inversor/Cargas
+    </h1>
+</h1>
+
+<div>
+
+    <div class="article-container">
+        <h1 class="experience-sub-title">Corrente:</h1>
+        <h1 class="experience-sub-title">Tensão:</h1>
+        <h1 class="experience-sub-title">Potência:</h1>
+    </div>
+    
+    <div class="article-container">
+        <h1 class="experience-sub-title" id="correnteinversor">correnteinversor</h1>
+        <h1 class="experience-sub-title" id="tensaoinversor">tensaoinversor</h1>
+        <h1 class="experience-sub-title" id="potenciainversor">potenciainversor</h1>
+    </div>
+
+    <div class="details-container color-container">
+        <p class="section__text__p1">Gráfico de Corrente Em Função do Tempo:</p>
+        <div>
+            <canvas id="myChart10"></canvas>
+        </div>
+    </div>
+
+    <div class="details-container color-container">
+        <p class="section__text__p1">Gráfico de Tensão Em Função do Tempo:</p>
+        <div>
+            <canvas id="myChart11"></canvas>
+        </div>
+    </div>
+
+    <div class="details-container color-container">
+        <p class="section__text__p1">Gráfico de Potência Em Função do Tempo:</p>
+        <div>
+            <canvas id="myChart12"></canvas>
+        </div>
+    </div>
+
+</div>
+<!--------------------------------------- FIM DA SECCÃO(SAIDA DO INVERSOR/CARGAS) --------------------------------------->
+
+
+    <!-- Script para o Firebase e Gráficos -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAybuUXvFw40aHel8x7zMRvZU4DwPQ4ebU",
+            authDomain: "tl-2024-a791d.firebaseapp.com",
+            databaseURL: "https://tl-2024-a791d-default-rtdb.firebaseio.com",
+            projectId: "tl-2024-a791d",
+            storageBucket: "tl-2024-a791d.appspot.com",
+            messagingSenderId: "49092126515",
+            appId: "1:49092126515:web:49337841131862d17e8046",
+            measurementId: "G-PLKJSE4Z31"
+        };
+
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // Variáveis globais
+        let globalcorrentegerador = 0, globaltensaogerador = 0, globalpotenciagerador = 0
+        let globalcorrentecontrolador = 0, globaltensaocontrolador = 0, globalpotenciacontrolador = 0
+        let globalcorrentebateria = 0, globaltensaobateria = 0, globalpotenciabateria = 0
+        let globalcorrenteinversor = 0, globaltensaoinversor = 0, globalpotenciainversor = 0
+        ;
+
+        // Obter referência aos dados
+        const dataRef1 = ref(database, 'GeradorFV/Corrente');
+        const dataRef2 = ref(database, 'GeradorFV/Tensao');
+        const dataRef3 = ref(database, 'Controlador/Corrente');
+        const dataRef4 = ref(database, 'Controlador/Tensao');
+        const dataRef5 = ref(database, 'Bateria/Corrente');
+        const dataRef6 = ref(database, 'Bateria/Tensao');
+        const dataRef7 = ref(database, 'Inversor/Corrente');
+        const dataRef8 = ref(database, 'Inversor/Tensao');
+
+        // Função para atualizar os dados e gráficos a cada 1 segundo
+        function atualizarGraficos() {
+            // Atualizar a potência
+            if (globalcorrentegerador !== undefined && globaltensaogerador !== undefined) {
+                var Pger = globalcorrentegerador * globaltensaogerador;
+                document.getElementById('potenciagerador').innerHTML = Pger.toFixed(2) + "W";
+                globalpotenciagerador = Pger;
+
+                // Atualizar o gráfico de potência
+                if (data3.datasets[0].data.length >= 25) {
+                    data3.labels.shift();
+                    data3.datasets[0].data.shift();
+                }
+                var now3 = new Date();
+                now3 = now3.getHours() + ":" + now3.getMinutes() + ":" + now3.getSeconds();
+                data3.labels.push(now3);
+                data3.datasets[0].data.push(globalpotenciagerador);
+                myChart3.update();
+            }
+            if (globalcorrentecontrolador !== undefined && globaltensaocontrolador !== undefined) {
+                var Pcont = globalcorrentecontrolador * globaltensaocontrolador;
+                document.getElementById('potenciacontrolador').innerHTML = Pcont.toFixed(2) + "W";
+                globalpotenciacontrolador = Pcont;
+
+                // Atualizar o gráfico de potência
+                if (data6.datasets[0].data.length >= 25) {
+                    data6.labels.shift();
+                    data6.datasets[0].data.shift();
+                }
+                var now6 = new Date();
+                now6 = now6.getHours() + ":" + now6.getMinutes() + ":" + now6.getSeconds();
+                data6.labels.push(now6);
+                data6.datasets[0].data.push(globalpotenciacontrolador);
+                myChart6.update();
+            }
+
+            if (globalcorrentebateria !== undefined && globaltensaobateria !== undefined) {
+                var Pbat = globalcorrentebateria * globaltensaobateria;
+                document.getElementById('potenciabateria').innerHTML = Pbat.toFixed(2) + "W";
+                globalpotenciabateria = Pbat;
+
+                // Atualizar o gráfico de potência
+                if (data9.datasets[0].data.length >= 25) {
+                    data9.labels.shift();
+                    data9.datasets[0].data.shift();
+                }
+                var now9 = new Date();
+                now9 = now9.getHours() + ":" + now9.getMinutes() + ":" + now9.getSeconds();
+                data9.labels.push(now9);
+                data9.datasets[0].data.push(globalpotenciabateria);
+                myChart9.update();
+            }
+
+            if (globalcorrenteinversor !== undefined && globaltensaoinversor !== undefined) {
+                var Pinv = globalcorrenteinversor * globaltensaoinversor;
+                document.getElementById('potenciainversor').innerHTML = Pinv.toFixed(2) + "W";
+                globalpotenciainversor = Pinv;
+
+                // Atualizar o gráfico de potência
+                if (data12.datasets[0].data.length >= 25) {
+                    data12.labels.shift();
+                    data12.datasets[0].data.shift();
+                }
+                var now12 = new Date();
+                now12 = now12.getHours() + ":" + now12.getMinutes() + ":" + now12.getSeconds();
+                data12.labels.push(now12);
+                data12.datasets[0].data.push(globalpotenciainversor);
+                myChart12.update();
+            }
+
+            // Atualizar os gráficos de corrente e tensão
+            if (globalcorrentegerador !== undefined) {
+                if (data1.datasets[0].data.length >= 25) {
+                    data1.labels.shift();
+                    data1.datasets[0].data.shift();
+                }
+                var now1 = new Date();
+                now1 = now1.getHours() + ":" + now1.getMinutes() + ":" + now1.getSeconds();
+                data1.labels.push(now1);
+                data1.datasets[0].data.push(globalcorrentegerador);
+                myChart1.update();
+            }
+
+            if (globaltensaogerador !== undefined) {
+                if (data2.datasets[0].data.length >= 25) {
+                    data2.labels.shift();
+                    data2.datasets[0].data.shift();
+                }
+                var now2 = new Date();
+                now2 = now2.getHours() + ":" + now2.getMinutes() + ":" + now2.getSeconds();
+                data2.labels.push(now2);
+                data2.datasets[0].data.push(globaltensaogerador);
+                myChart2.update();
+            }
+
+
+            if (globalcorrentecontrolador !== undefined) {
+                if (data4.datasets[0].data.length >= 25) {
+                    data4.labels.shift();
+                    data4.datasets[0].data.shift();
+                }
+                var now4 = new Date();
+                now4 = now4.getHours() + ":" + now4.getMinutes() + ":" + now4.getSeconds();
+                data4.labels.push(now4);
+                data4.datasets[0].data.push(globalcorrentecontrolador);
+                myChart4.update();
+            }
+
+            if (globaltensaocontrolador !== undefined) {
+                if (data5.datasets[0].data.length >= 25) {
+                    data5.labels.shift();
+                    data5.datasets[0].data.shift();
+                }
+                var now5 = new Date();
+                now5 = now5.getHours() + ":" + now5.getMinutes() + ":" + now5.getSeconds();
+                data5.labels.push(now5);
+                data5.datasets[0].data.push(globaltensaocontrolador);
+                myChart5.update();
+            }
+
+
+
+            if (globalcorrentebateria !== undefined) {
+                if (data7.datasets[0].data.length >= 25) {
+                    data7.labels.shift();
+                    data7.datasets[0].data.shift();
+                }
+                var now7 = new Date();
+                now7 = now7.getHours() + ":" + now7.getMinutes() + ":" + now7.getSeconds();
+                data7.labels.push(now7);
+                data7.datasets[0].data.push(globalcorrentebateria);
+                myChart7.update();
+            }
+
+            if (globaltensaobateria !== undefined) {
+                if (data8.datasets[0].data.length >= 25) {
+                    data8.labels.shift();
+                    data8.datasets[0].data.shift();
+                }
+                var now8 = new Date();
+                now8 = now8.getHours() + ":" + now8.getMinutes() + ":" + now8.getSeconds();
+                data8.labels.push(now8);
+                data8.datasets[0].data.push(globaltensaobateria);
+                myChart8.update();
+            }
+
+
+            if (globalcorrenteinversor !== undefined) {
+                if (data10.datasets[0].data.length >= 25) {
+                    data10.labels.shift();
+                    data10.datasets[0].data.shift();
+                }
+                var now10 = new Date();
+                now10 = now10.getHours() + ":" + now10.getMinutes() + ":" + now10.getSeconds();
+                data10.labels.push(now10);
+                data10.datasets[0].data.push(globalcorrenteinversor);
+                myChart10.update();
+            }
+
+            if (globaltensaobateria !== undefined) {
+                if (data11.datasets[0].data.length >= 25) {
+                    data11.labels.shift();
+                    data11.datasets[0].data.shift();
+                }
+                var now11 = new Date();
+                now11 = now11.getHours() + ":" + now11.getMinutes() + ":" + now11.getSeconds();
+                data11.labels.push(now11);
+                data11.datasets[0].data.push(globaltensaoinversor);
+                myChart11.update();
+            }
+        }
+
+        // Obter os dados de corrente
+        onValue(dataRef1, (snapshot) => {
+            var Iger = snapshot.val();
+            document.getElementById('correntegerador').innerHTML = Iger + "A";
+            globalcorrentegerador = Iger;
+        });
+
+        // Obter os dados de tensão
+        onValue(dataRef2, (snapshot) => {
+            var Tger = snapshot.val();
+            document.getElementById('tensaogerador').innerHTML = Tger + "V";
+            globaltensaogerador = Tger;
+        });
+
+        // Configuração dos gráficos
+        const labels1 = [];
+        const data1 = {
+            labels: labels1,
+            datasets: [{
+                label: 'Corrente (A)',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [],
+                lineTension: 0.05,
+            }]
+        };
+
+        const config1 = {
+            type: 'line',
+            data: data1,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const myChart1 = new Chart(document.getElementById('myChart1'), config1);
+
+        const labels2 = [];
+        const data2 = {
+            labels: labels2,
+            datasets: [{
+                label: 'Tensão (V)',
+                backgroundColor: 'rgb(54, 162, 235)',
+                borderColor: 'rgb(54, 162, 235)',
+                data: [],
+                lineTension: 0.25,
+            }]
+        };
+
+        const config2 = {
+            type: 'line',
+            data: data2,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const myChart2 = new Chart(document.getElementById('myChart2'), config2);
+
+        const labels3 = [];
+        const data3 = {
+            labels: labels3,
+            datasets: [{
+                label: 'Potência (V)',
+                backgroundColor: 'rgb(255, 159, 64)',
+                borderColor: 'rgb(255, 159, 64)',
+                data: [],
+                lineTension: 0.25,
+            }]
+        };
+
+        const config3 = {
+            type: 'line',
+            data: data3,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const myChart3 = new Chart(document.getElementById('myChart3'), config3);
+
+        onValue(dataRef3, (snapshot) => {
+            var Icont = snapshot.val();
+            document.getElementById('correntecontrolador').innerHTML = Icont + "A";
+            globalcorrentecontrolador = Icont;
+        });
+
+        // Obter os dados de tensão
+        onValue(dataRef4, (snapshot) => {
+            var Tcont = snapshot.val();
+            document.getElementById('tensaocontrolador').innerHTML = Tcont + "V";
+            globaltensaocontrolador = Tcont;
+        });
+
+        // Configuração dos gráficos
+        const labels4 = [];
+        const data4 = {
+            labels: labels4,
+            datasets: [{
+                label: 'Corrente (A)',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [],
+                lineTension: 0.25,
+            }]
+        };
+
+        const config4 = {
+            type: 'line',
+            data: data4,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const myChart4 = new Chart(document.getElementById('myChart4'), config4);
+
+        const labels5 = [];
+        const data5 = {
+            labels: labels5,
+            datasets: [{
+                label: 'Tensão (V)',
+                backgroundColor: 'rgb(54, 162, 235)',
+                borderColor: 'rgb(54, 162, 235)',
+                data: [],
+                lineTension: 0.25,
+            }]
+        };
+
+        const config5 = {
+            type: 'line',
+            data: data5,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const myChart5 = new Chart(document.getElementById('myChart5'), config5);
+
+        const labels6 = [];
+        const data6 = {
+            labels: labels6,
+            datasets: [{
+                label: 'Potência (V)',
+                backgroundColor: 'rgb(255, 159, 64)',
+                borderColor: 'rgb(255, 159, 64)',
+                data: [],
+                lineTension: 0.25,
+            }]
+        };
+
+        const config6 = {
+            type: 'line',
+            data: data6,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const myChart6 = new Chart(document.getElementById('myChart6'), config6);
+
+
+
+
+        onValue(dataRef5, (snapshot) => {
+            var Ibat = snapshot.val();
+            document.getElementById('correntebateria').innerHTML = Ibat + "A";
+            globalcorrentebateria = Ibat;
+        });
+
+        // Obter os dados de tensão
+        onValue(dataRef6, (snapshot) => {
+            var Tbat = snapshot.val();
+            document.getElementById('tensaobateria').innerHTML = Tbat + "V";
+            globaltensaobateria = Tbat;
+        });
+
+        // Configuração dos gráficos
+        const labels7 = [];
+        const data7 = {
+            labels: labels7,
+            datasets: [{
+                label: 'Corrente (A)',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [],
+                lineTension: 0.25,
+            }]
+        };
+
+        const config7 = {
+            type: 'line',
+            data: data7,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const myChart7 = new Chart(document.getElementById('myChart7'), config7);
+
+        const labels8 = [];
+        const data8 = {
+            labels: labels8,
+            datasets: [{
+                label: 'Tensão (V)',
+                backgroundColor: 'rgb(54, 162, 235)',
+                borderColor: 'rgb(54, 162, 235)',
+                data: [],
+                lineTension: 0.25,
+            }]
+        };
+
+        const config8 = {
+            type: 'line',
+            data: data8,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const myChart8 = new Chart(document.getElementById('myChart8'), config8);
+
+        const labels9 = [];
+        const data9 = {
+            labels: labels9,
+            datasets: [{
+                label: 'Potência (V)',
+                backgroundColor: 'rgb(255, 159, 64)',
+                borderColor: 'rgb(255, 159, 64)',
+                data: [],
+                lineTension: 0.25,
+            }]
+        };
+
+        const config9 = {
+            type: 'line',
+            data: data9,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const myChart9 = new Chart(document.getElementById('myChart9'), config9);
+        
+        onValue(dataRef7, (snapshot) => {
+            var Iinv = snapshot.val();
+            document.getElementById('correnteinversor').innerHTML = Iinv + "A";
+            globalcorrenteinversor = Iinv;
+        });
+
+        // Obter os dados de tensão
+        onValue(dataRef8, (snapshot) => {
+            var Tinv = snapshot.val();
+            document.getElementById('tensaoinversor').innerHTML = Tinv + "V";
+            globaltensaoinversor = Tinv;
+        });
+
+        // Configuração dos gráficos
+        const labels10 = [];
+        const data10 = {
+            labels: labels10,
+            datasets: [{
+                label: 'Corrente (A)',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [],
+                lineTension: 0.25,
+            }]
+        };
+
+        const config10 = {
+            type: 'line',
+            data: data10,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const myChart10 = new Chart(document.getElementById('myChart10'), config10);
+
+        const labels11 = [];
+        const data11 = {
+            labels: labels11,
+            datasets: [{
+                label: 'Tensão (V)',
+                backgroundColor: 'rgb(54, 162, 235)',
+                borderColor: 'rgb(54, 162, 235)',
+                data: [],
+                lineTension: 0.25,
+            }]
+        };
+
+        const config11 = {
+            type: 'line',
+            data: data11,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const myChart11 = new Chart(document.getElementById('myChart11'), config11);
+
+        const labels12 = [];
+        const data12 = {
+            labels: labels12,
+            datasets: [{
+                label: 'Potência (V)',
+                backgroundColor: 'rgb(255, 159, 64)',
+                borderColor: 'rgb(255, 159, 64)',
+                data: [],
+                lineTension: 0.25,
+            }]
+        };
+
+        const config12 = {
+            type: 'line',
+            data: data12,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const myChart12 = new Chart(document.getElementById('myChart12'), config12);
+
+        // Atualizar os gráficos a cada 1 segundo
+        setInterval(atualizarGraficos, 3000);
+
+    </script>
+
+  </section>
+ 
+  <footer>
+    <nav>
+        <div class="nav-links-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="experience.html">Monitoramento FV</a></li>
+                <li><a href="index.html">Agradecimentos</a></li>
+                <li><a href="index.html">Contactos</a></li>
+            </ul>
+        </div>
+    </nav>
+    <p>Copyright &#169; 2024 Juvêncio Chimbutane. Todos Direitos Reservados</p>
+  </footer>
+ <script src="script.js"></script>   
+</body>
+</html>
